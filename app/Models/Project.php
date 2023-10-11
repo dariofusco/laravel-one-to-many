@@ -15,10 +15,14 @@ class Project extends Model
 
     protected $fillable = [
         'name',
-        'type',
+        'type_id',
         'description',
         'date',
         'image',
         'github_link'
     ];
+
+    public function projects() {
+        return $this->hasMany(Project::class);
+    }
 }

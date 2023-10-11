@@ -5,7 +5,7 @@
 
         <h1>{{ $project->name }}</h1>
 
-        <h2>{{ $project->type }}</h2>
+        <h2>{{ $project->type->name }}</h2>
 
         <p>{{ $project->description }}</p>
 

@@ -21,11 +21,14 @@
 
             <div class="mb-3">
                 <label class="form-label">Tipologia</label>
-                <input type="text" class="form-control @error('type') is-invalid @enderror" name="type"
-                    value="{{ $project->type }}">
-                @error('type')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+                <select class="form-select @error('type_id') is-invalid @enderror" name="type_id">
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                    @error('type_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </select>
             </div>
 
             <div class="mb-3">

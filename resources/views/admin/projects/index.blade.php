@@ -28,7 +28,7 @@
                 @foreach ($projects as $project)
                     <tr>
                         <td>{{ $project->name }}</td>
-                        <td>{{ $project->type }}</td>
+                        <td>{{ $project->type->name }}</td>
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->date->format('d/m/Y') }}</td>
                         <td>{{ $project->image }}</td>
