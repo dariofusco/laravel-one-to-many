@@ -15,7 +15,7 @@ return new class extends Migration
             
             $table->unsignedBigInteger('type_id')->after('name');
 
-            $table->foreign('type_id')->references('id')->on('projects');
+            $table->foreign('type_id')->references('id')->on('types');
 
         });
     }

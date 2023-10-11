@@ -6,7 +6,7 @@
         <h1>{{ $project->name }}</h1>
 
         <h2>{{ $project->type->name }}</h2>
-
+        
         <p>{{ $project->description }}</p>
 
         <p>{{ $project->date->format('d/m/Y') }}</p>

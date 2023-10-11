@@ -22,7 +22,7 @@ class Project extends Model
         'github_link'
     ];
 
-    public function projects() {
-        return $this->hasMany(Type::class);
+    public function type() {
+        return $this->belongsTo(Type::class);
     }
 }
