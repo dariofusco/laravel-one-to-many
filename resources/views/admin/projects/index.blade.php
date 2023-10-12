@@ -5,22 +5,17 @@
 
         <h1>I Miei Progetti</h1>
 
-        <div class="bg-light my-2">
-            <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Nuovo Progetto</a>
-        </div>
-
         <table class="table">
             <thead>
                 <tr>
-                    <td>Nome</td>
-                    <td>Tipologia</td>
-                    <td>Descrizione</td>
-                    <td>Data</td>
-                    <td>Immagine</td>
-                    <td>GitHub Link</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Tipologia</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Immagine</th>
+                    <th scope="col">GitHub Link</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
 
@@ -28,16 +23,15 @@
                 @foreach ($projects as $project)
                     <tr>
                         <td>{{ $project->name }}</td>
-                        <td>{{ $project->type->name }}</td>
+                        <td><span class="badge text-bg-info">{{ $project->type->name }}</span></td>
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->date->format('d/m/Y') }}</td>
-                        <td>{{ $project->image }}</td>
+                        <td><img src="{{ asset('/storage/' . $project->image) }}" alt="" class="img-fluid border"
+                                style="width: 50px"></td>
                         <td>{{ $project->github_link }}</td>
                         <td>
-                            <a class="btn btn-primary" href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-info">Dettagli</a>
-                        </td>
-                        <td>
-                            <a class="btn btn-warning" href="{{ route('admin.projects.edit', ['project' => $project->id]) }}">Modifica</a>
+                            <a class="btn btn-primary" href="{{ route('admin.projects.show', $project->id) }}"
+                                class="btn btn-info">Dettagli</a>
                         </td>
                         <td>
                             <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
@@ -53,6 +47,7 @@
         </table>
 
         <a class="btn btn-primary" href="{{ url('/admin/dashboard') }}">Indietro</a>
+        <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Nuovo Progetto</a>
 
     </div>
 @endsection
