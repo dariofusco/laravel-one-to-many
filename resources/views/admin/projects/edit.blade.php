@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container py-3">
 
-        <h1>Modifica Progetto</h1>
+        <h1 class="py-3">Modifica Progetto</h1>
 
         <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="POST"
             enctype="multipart/form-data">
@@ -23,7 +23,7 @@
                 <label class="form-label">Tipologia</label>
                 <select class="form-select @error('type_id') is-invalid @enderror" name="type_id">
                     @foreach ($types as $type)
-                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        <option value="{{ $type->id }}" {{ $project->type_id === $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
                     @endforeach
                     @error('type_id')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -49,10 +49,10 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Immagine</label>
+                <label class="form-label">Immagine:</label>
                 @if ($project->image)
                     <img src="{{ asset('/storage/' . $project->image) }}" alt=""
-                        class="img-fluid border border-danger my-2" style="width: 100px">
+                        class="img-fluid border border-danger my-2 p-1" style="width: 100px">
                 @endif
                 <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
                 @error('image')
@@ -69,9 +69,9 @@
                 @enderror
             </div>
 
-            <a class="btn btn-primary" href="{{ route('admin.projects.show', ['project' => $project->id]) }}">Indietro</a>
+            <a class="btn btn-danger" href="{{ route('admin.projects.show', ['project' => $project->id]) }}">Annulla</a>
 
-            <button class="btn btn-primary">Salva</button>
+            <button class="btn btn-success">Salva</button>
 
         </form>
 

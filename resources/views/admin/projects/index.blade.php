@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container py-3">
 
-        <h1>I Miei Progetti</h1>
+        <h1 class="py-3">I Miei Progetti</h1>
 
         <table class="table">
             <thead>
