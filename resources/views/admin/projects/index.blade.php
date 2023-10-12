@@ -28,7 +28,7 @@
                         <td>{{ $project->date->format('d/m/Y') }}</td>
                         <td><img src="{{ asset('/storage/' . $project->image) }}" alt="" class="img-fluid border"
                                 style="width: 50px"></td>
-                        <td>{{ $project->github_link }}</td>
+                        <td><a href="{{ $project->github_link }}">{{ $project->github_link }}</a></td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.projects.show', $project->id) }}"
                                 class="btn btn-info">Dettagli</a>
